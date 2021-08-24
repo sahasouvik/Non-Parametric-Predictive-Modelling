@@ -1,0 +1,10 @@
+library(ISLR)
+attach(Auto)
+str(Auto)
+#Generalized Additive Models
+require(mgcv,quiet=T)
+calif.auto<-gam(mpg~s(displacement)+s(horsepower)+ s(weight)+s(acceleration)+s(cylinders)+s(origin)+s(year)+name, data=Auto)
+calif.auto1<-gam(mpg~s(displacement)+s(horsepower)+ s(weight), data=Auto)
+summary(calif.auto1)
+calif.auto2<-gam(mpg~s(displacement)+s(horsepower)+ s(weight)+s(acceleration), data=Auto)
+summary(calif.auto2)

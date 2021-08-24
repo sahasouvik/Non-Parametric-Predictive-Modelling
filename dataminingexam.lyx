@@ -1,0 +1,3902 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+PRESIDENCY UNIVERSITY
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+NAME-SOUVIK SAHA
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+CLASS-MSc SEMESTER 4
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+CLASS ROLL NO-STAT 06
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+REGISTRATION NO-18414110005
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+EXAM ROLL NO-18414005
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+SUBJECT-DATA MINING
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+\bar under
+INTRODUCTION
+\end_layout
+
+\begin_layout Standard
+We are working with the Auto dataset in R.The objective is to perform regression
+ on mpg on horsepower using non-parametric procedures only.At the end we
+ have tried to fit regression models by including other variables as covariates
+ in a non-parametric way.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+\bar under
+METHODOLOGY
+\end_layout
+
+\begin_layout Standard
+We apply the following non-parametric regression procedures here:-
+\end_layout
+
+\begin_layout Itemize
+KNN Regression
+\end_layout
+
+\begin_layout Itemize
+Kernel Regression
+\end_layout
+
+\begin_layout Itemize
+Local Linear Regression 
+\end_layout
+
+\begin_layout Itemize
+Polynomial Fitting 
+\end_layout
+
+\begin_layout Itemize
+Piecewise Polynomials
+\end_layout
+
+\begin_layout Itemize
+Splines 
+\end_layout
+
+\begin_layout Itemize
+Generalized Additive Models
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+KNN Regression
+\end_layout
+
+\begin_layout Standard
+KNN or K Nearest Neighbor regression is a special form of Linear Smoothers.A
+ linear smoother is given by:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{f(x)}=$
+\end_inset
+
+
+\begin_inset Formula $\underset{i}{\sum}$
+\end_inset
+
+
+\begin_inset Formula $y_{i}\widehat{w}(x_{i},x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In k-Nearest Neighbor regression :-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{w}(x_{i},x)$
+\end_inset
+
+={ 
+\begin_inset Formula $\frac{1}{k}$
+\end_inset
+
+, if 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ is one of the closest neighbors of x
+\end_layout
+
+\begin_layout Standard
+=0, otherwise
+\end_layout
+
+\begin_layout Standard
+Here x=horsepower and y=mpg.So in KNN Regression first we find the k closest
+ values of horsepower (
+\begin_inset Formula $x_{i}$
+\end_inset
+
+, i=1(1)k) with respect to a new value of horsepower (x).
+\end_layout
+
+\begin_layout Standard
+Then we obtain the mean of the mpg values (
+\begin_inset Formula $y_{i}$
+\end_inset
+
+, i=1(1)k) corresponding to the k closest horsepower points and use it as
+ an predicted mpg corresponding to the new value of horsepower(x) viz
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{f(x)}=\frac{1}{k}\underset{i\epsilon N_{k}(x)}{\sum y_{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here 
+\begin_inset Formula $N_{k}(x)$
+\end_inset
+
+ denotes the set of the k values nearest to the new horsepower (x).
+\end_layout
+
+\begin_layout Standard
+This serves as a good estimator and achieves great flexibility with varying
+ k.
+ Since flexibility increases as we decrease k and vice versa and a small
+ value of k makes the estimator more sensitive to the distance between a
+ neighbor and the new value (x) an idea of an optimum value of k is necessary.We
+ use n fold cross-validation to find the optimum value of k by minimising
+ the test error.
+\end_layout
+
+\begin_layout Standard
+The problem with KNN is k serves as the tuning parameter here and controls
+ the degree of smoothness which is absurd as the degree of smoothness is
+ expressed in terms of number of data points when it should be based on
+ the range of the independent variable and use the entire training dataset.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Kernel Regression
+\end_layout
+
+\begin_layout Standard
+The Kernel Regression is also known as Nadaraya-Watson regression.We start
+ with a kernel function which satisfies the following properties:-
+\end_layout
+
+\begin_layout Standard
+1) 
+\begin_inset Formula $K(x_{i},x)>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2) 
+\begin_inset Formula $K(x_{i},x)$
+\end_inset
+
+ depends on 
+\begin_inset Formula $(x_{i}-x)$
+\end_inset
+
+ rather than 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ or x.In other words it depends on the distance between a horsepower value(
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}$
+\end_inset
+
+)
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ and a new horsepower value (x) i.e it is also based on how close a horsepower
+ value is with respect to the new horsepower value.
+\end_layout
+
+\begin_layout Standard
+3)
+\begin_inset Formula $\int x$
+\end_inset
+
+
+\begin_inset Formula $K(0,x)$
+\end_inset
+
+
+\begin_inset Formula $dx$
+\end_inset
+
+=0 
+\end_layout
+
+\begin_layout Standard
+4)0<
+\begin_inset Formula $\int$
+\end_inset
+
+
+\begin_inset Formula $x^{2}$
+\end_inset
+
+
+\begin_inset Formula $K(0,x)$
+\end_inset
+
+
+\begin_inset Formula $dx$
+\end_inset
+
+<
+\begin_inset Formula $\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This implies if the distance between any horsepower value 
+\begin_inset Formula $(x_{i})$
+\end_inset
+
+ and the new horsepower value (x) is very large then the kernel becomes
+ close to 0 viz,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $K(x_{i},x)\rightarrow0$
+\end_inset
+
+ as |
+\begin_inset Formula $x_{i}-x|\rightarrow\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We can write the kernel as the joint function of 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+and x like 
+\begin_inset Formula $K(x_{i},x)=K(x-x_{i})$
+\end_inset
+
+.Then the estimated wights are given by:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{w}(x_{i},x)=\frac{K(\frac{x-x_{i}}{h})}{\sum K(\frac{x-x_{j}}{h})}$
+\end_inset
+
+ where h is the bandwidth.
+\end_layout
+
+\begin_layout Standard
+We define the Nadaraya-Watson estimate of the regression function as:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{f(x)}=\sum y_{i}\frac{K(\frac{x-x_{i}}{h})}{\sum K(\frac{x-x_{j}}{h})}$
+\end_inset
+
+ i.e it is expressed as a weighted average of the mpg values corresponding
+ to each horsepower value in the training set.
+\end_layout
+
+\begin_layout Standard
+The Kernels we have used are:-
+\end_layout
+
+\begin_layout Itemize
+The Boxchar Kernel : 
+\begin_inset Formula $K(x)=\frac{1}{2}I(x)$
+\end_inset
+
+ where 
+\begin_inset Formula $I(x)=\begin{cases}
+1 & ,|x|\leq1\\
+0 & ,|x|>1
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The Gaussian Kernel: 
+\begin_inset Formula $K(x)=\frac{1}{\sqrt{2\pi}}^{e-\frac{x^{2}}{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now for finding the optimum bandwidth we start with a grid of bandwidths
+ and perform n-fold cross-validation to check how each generalises and choose
+ the one with the lowest error.
+\end_layout
+
+\begin_layout Standard
+We see unlike in KNN regression the Kernel regression uses the entire training
+ set.But the variance increases as n increases and bias increases as any
+ horsepower value(
+\begin_inset Formula $x_{i}$
+\end_inset
+
+) gets further away from x.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Local Linear Regression
+\end_layout
+
+\begin_layout Standard
+We have a value for the horsepower of a car,say 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ for which we want to predict the mpg.Then the local regression at X=
+\begin_inset Formula $x_{0}$
+\end_inset
+
+is obtained by:-
+\end_layout
+
+\begin_layout Standard
+1)We gather the fraction s=
+\begin_inset Formula $\frac{k}{n}$
+\end_inset
+
+ of the training points whose horsepower values(
+\begin_inset Formula $x_{i}$
+\end_inset
+
+) are closest to 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+2)We assign a weight 
+\begin_inset Formula $K(x_{i},x_{0})$
+\end_inset
+
+ to each point in this neighborhood, so that the point furthest from 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ has weight zero, and the closest has the highest weight.
+ All but these k nearest neighbors get weight zero.
+\end_layout
+
+\begin_layout Standard
+3)Fit a weighted least squares regression of the 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ on the 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ using the aforementioned weights, by finding 
+\begin_inset Formula $\hat{\beta_{0}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\beta_{1}}$
+\end_inset
+
+ that minimize 
+\begin_inset Formula $\stackrel[i=1]{n}{\sum}K(x_{i},x_{0})(y_{i}-\beta_{0}-\beta_{1}x_{i})^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4)The fitted value at 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\hat{f(x_{0})}=\hat{\beta_{0}}+\hat{\beta_{1}}x_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is similar to the way of prediction in a simple linear regression.Moreover
+ the weights used are those of a Kernel i.e similar to Kernel regression
+ as well.This serves better than dividing the range of horsepower values
+ into bins and fitting linear regressions for each bin.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Polynomial Fitting
+\end_layout
+
+\begin_layout Standard
+We have a value for the horsepower of a car,say 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ for which we want to predict the mpg.We extend from linear to non-linear
+ models and try to predict using polynomials.
+\end_layout
+
+\begin_layout Standard
+The model is an extension to linear regression and looks like this:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ = 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ + 
+\begin_inset Formula $\beta_{1}x_{i}$
+\end_inset
+
+ + 
+\begin_inset Formula $\beta_{2}x_{i}^{2}$
+\end_inset
+
+ + 
+\begin_inset Formula $\beta_{3}x_{i}^{3}$
+\end_inset
+
+ + .
+ .
+ .
+ + 
+\begin_inset Formula $\beta_{d}x_{i}^{d}$
+\end_inset
+
+ + 
+\begin_inset Formula $\epsilon_{i}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\epsilon_{i}$
+\end_inset
+
+denotes the random error.
+\end_layout
+
+\begin_layout Standard
+The fitted values are given by:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ = 
+\begin_inset Formula $\hat{\beta_{0}}$
+\end_inset
+
+ + 
+\begin_inset Formula $\hat{\beta_{1}}x_{i}$
+\end_inset
+
+ + 
+\begin_inset Formula $\hat{\beta_{2}}x_{i}^{2}$
+\end_inset
+
+ + 
+\begin_inset Formula $\hat{\beta_{3}}x_{i}^{3}$
+\end_inset
+
+ + .
+ .
+ .
+ + 
+\begin_inset Formula $\hat{\beta_{d}}x_{i}^{d}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+For large regression enough degree d, a polynomial regression allows us
+ to produce an extremely non-linear curve.it is unusual to use d greater
+ than 3 or 4 because for large values of d, the polynomial curve can become
+ overly flexible and can take on some very strange shapes.
+ This is especially true near the boundary of the horsepower variable.So
+ this is not a good method.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Piecewise Polynomial Fitting
+\end_layout
+
+\begin_layout Standard
+A piecewise polynomial function f(x) is obtained by dividing the domain
+ of horsepower variable into contiguous intervals, and representing f by
+ a separate polynomial in each interval i.e instead of fitting a high-degree
+ polynomial over the entire range of horsepower, piecewise polynomial regression
+ involves fitting separate low-degree polynomials over different regions
+ of horsepower.
+\end_layout
+
+\begin_layout Standard
+First we use a very special case of Piecewise Polynomials.They are known
+ as Piecewise Constant Models.
+\end_layout
+
+\begin_layout Standard
+We know horsepower is a continuous variable.We break the range of the horsepower
+ into bins and fit constants in each bin.
+\end_layout
+
+\begin_layout Standard
+This does the following:-
+\end_layout
+
+\begin_layout Standard
+1)It helps to convert horsepower into some ordered categories.
+\end_layout
+
+\begin_layout Standard
+2)It gets rid of the global structure imposed by polynomial regression.
+\end_layout
+
+\begin_layout Standard
+The process is done in the following way:-
+\end_layout
+
+\begin_layout Standard
+We create cutpoints in the range of the horsepower variable as 
+\begin_inset Formula $c_{1},c_{2},.......,c_{k}$
+\end_inset
+
+and create (k+1) variables as follows:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C_{0}(X)=I(X<c_{1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C_{1}(X)=I(c_{1}\leq X<c_{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C_{2}(X)=I(c_{2}\leq X<c_{3})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C_{k-1}(X)=I(c_{k-1}\leq X<c_{k})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C_{k}(X)=I(X\geq c_{k})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where I(.) is the indicator variable which takes value 1 if the condition
+ is satisfied and 0 otherwise.
+\end_layout
+
+\begin_layout Standard
+These variables are called Dummy Variables.An interesting fact which is observed
+ is that for any value of horsepower 
+\begin_inset Formula $\stackrel[i=0]{k}{\sum}C_{i}(X)=1$
+\end_inset
+
+,since any value of horsepower must be in exactly one of the k + 1 intervals.
+ We then use least squares to fit a linear model using 
+\begin_inset Formula $C_{1}(X)$
+\end_inset
+
+, 
+\begin_inset Formula $C_{2}(X)$
+\end_inset
+
+, .
+ .
+ ., 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $C_{k}(X)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ as predictors as,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ = 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ + 
+\begin_inset Formula $\beta_{1}C_{1}(x_{i})$
+\end_inset
+
+ + 
+\begin_inset Formula $\beta_{2}C_{2}(x_{i})$
+\end_inset
+
+ + .
+ .
+ .
+ + 
+\begin_inset Formula $\beta_{k}C_{k}(x_{i})$
+\end_inset
+
+ + 
+\begin_inset Formula $\epsilon_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a given value of horsepower(X), at most one of 
+\begin_inset Formula $C_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+, .
+ .
+ ., 
+\begin_inset Formula $C_{k}$
+\end_inset
+
+ can be non-zero.Note that when X < 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ , all of the predictors in the above equation are zero, so 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ can be interpreted as the mean value of mpg for the values of horsepower
+ < 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ .
+ By comparison, the equation predicts a response of 
+\begin_inset Formula $\beta_{0}+\beta_{j}$
+\end_inset
+
+ for 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+ ≤X <
+\begin_inset Formula $c_{j}$
+\end_inset
+
+ +1, so 
+\begin_inset Formula $\beta_{j}$
+\end_inset
+
+ represents the average increase in the response for values of horsepower
+ in 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+ ≤X <
+\begin_inset Formula $c_{j}$
+\end_inset
+
++1 relative to the values of horsepower when X <
+\begin_inset Formula $c_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Splines
+\end_layout
+
+\begin_layout Standard
+A 
+\begin_inset Formula $q^{th}$
+\end_inset
+
+-order spline f is a piecewise polynomial function of degree q that is continuou
+s and has continuous derivatives of orders 1,2,..., q-1; at its knot points.
+ Specifically, there are knots 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+ < 
+\begin_inset Formula $t_{2}$
+\end_inset
+
+ < ...< 
+\begin_inset Formula $t_{k}$
+\end_inset
+
+ such that f is a polynomial of degree q on each of the intervals (1, 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+]; [
+\begin_inset Formula $t_{1}$
+\end_inset
+
+,
+\begin_inset Formula $t_{2}$
+\end_inset
+
+],...., [
+\begin_inset Formula $t_{k},\infty$
+\end_inset
+
+) and 
+\begin_inset Formula $f^{(i)}$
+\end_inset
+
+ is continuous at 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+,
+\begin_inset Formula $t_{2}$
+\end_inset
+
+,...,
+\begin_inset Formula $t_{k}$
+\end_inset
+
+for each j = 0,1,....,q-1.
+\end_layout
+
+\begin_layout Standard
+We use the following splines to regress mpg on horsepower.
+\end_layout
+
+\begin_layout Standard
+1)Splines with a plus function basis
+\end_layout
+
+\begin_layout Standard
+2)Regression Splines
+\end_layout
+
+\begin_layout Standard
+3)Natural Splines
+\end_layout
+
+\begin_layout Standard
+4)B-Splines
+\end_layout
+
+\begin_layout Standard
+5)Smoothing Splines
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Splines with a plus function basis
+\end_layout
+
+\begin_layout Standard
+This is a way of parametrization of splines.It is defined as:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{+}^{q}=\begin{cases}
+x^{q} & x>0\\
+0 & otherwise
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(x)=a_{0}+a_{1}x+a_{2}x^{2}.......+a_{q}x^{q}+\stackrel[l=1]{k}{\sum}a_{q+1}(x-t_{l})_{+}^{q}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here the terms are polynomous and there are q + 1 + k independent parameters.Henc
+e estimation will not involve constraints.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size small
+\bar under
+Regression Splines
+\end_layout
+
+\begin_layout Standard
+Here we consider the values of horsepower viz 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+, ...., 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ and the values of mpg 
+\begin_inset Formula $y_{1}$
+\end_inset
+
+,
+\begin_inset Formula $y_{2}$
+\end_inset
+
+,...,
+\begin_inset Formula $y_{n}$
+\end_inset
+
+we fit functions f which are 
+\begin_inset Formula $(q+1)^{th}$
+\end_inset
+
+order splines with knots at some chosen locations 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+,
+\begin_inset Formula $t_{2}$
+\end_inset
+
+,...,
+\begin_inset Formula $t_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We express f as:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(x)=\stackrel[j=1]{q+k+1}{\sum}\beta_{j}g_{j}(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{2}$
+\end_inset
+
+,...
+\begin_inset Formula $\beta_{q+k+1}$
+\end_inset
+
+ are the coefficients and 
+\begin_inset Formula $g_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $g_{2}$
+\end_inset
+
+,......,
+\begin_inset Formula $g_{q+k+1}$
+\end_inset
+
+ are the basis functions for order (q+1) splines over the knots 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+,
+\begin_inset Formula $t_{2}$
+\end_inset
+
+,...,
+\begin_inset Formula $t_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let y=(
+\begin_inset Formula $y_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+, ....,
+\begin_inset Formula $y_{n}$
+\end_inset
+
+)
+\begin_inset Formula $\epsilon$
+\end_inset
+
+
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ and the basis function matrix 
+\begin_inset Formula $G\epsilon\mathbb{R}_{n\times q+k+1}$
+\end_inset
+
+by G=((
+\begin_inset Formula $G_{ij}$
+\end_inset
+
+)) defined by 
+\begin_inset Formula $G_{ij}=g_{j}(x_{i})$
+\end_inset
+
+.Then we can just use the least square method to determine the optimal coefficien
+ts 
+\begin_inset Formula $\hat{\beta}=(\hat{\beta_{1}},\hat{\beta_{2}},.......,\hat{\beta_{q+k+1})}$
+\end_inset
+
+ as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+= 
+\begin_inset Formula $\underset{\mathbb{\beta\epsilon R^{p}}}{arg}min$
+\end_inset
+
+ 
+\begin_inset Formula $||y-G\beta||_{2}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This gives us the fitted regression spline as 
+\begin_inset Formula $\hat{f(x)}=\stackrel[j=1]{q+k+1}{\sum\hat{\beta_{j}}g_{j}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size small
+\bar under
+Natural Splines
+\end_layout
+
+\begin_layout Standard
+Regression Splines may result in high variance at the boundaries and pose
+ many problems with increase in q.
+ Natural splines are a natural remedy to this problem.
+ They force the piecewise polynomial function to have a lower degree to
+ the left of the leftmost knot, and to the right of the rightmost knot.A
+ natural spline of order (q+1) with knots at 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+ < 
+\begin_inset Formula $t_{2}$
+\end_inset
+
+ < ...< 
+\begin_inset Formula $t_{k}$
+\end_inset
+
+ is a piecewise polynomial function f such that:-
+\end_layout
+
+\begin_layout Standard
+1)f is a polynomial of degree q at each [
+\begin_inset Formula $t_{1},t_{2}$
+\end_inset
+
+],.....,[
+\begin_inset Formula $t_{k-1},t_{k}$
+\end_inset
+
+].
+\end_layout
+
+\begin_layout Standard
+2)f is a polynomial of degree 
+\begin_inset Formula $\frac{(q-1)}{2}$
+\end_inset
+
+ on 
+\begin_inset Formula $($
+\end_inset
+
+-
+\begin_inset Formula $\infty,t_{1}]$
+\end_inset
+
+ and [
+\begin_inset Formula $t_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $\infty$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+3)f is continuous and has continuous derivatives of order 1,2,....,q-1 at 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+,
+\begin_inset Formula $t_{2}$
+\end_inset
+
+,...,
+\begin_inset Formula $t_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size small
+\bar under
+B-Splines
+\end_layout
+
+\begin_layout Standard
+B-spline basis representation tends to be the most numerically stable representa
+tion of a spline but intuition is lost.
+\end_layout
+
+\begin_layout Standard
+It is defined as;-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $t_{l}=\begin{cases}
+a & l<1\\
+b & l>k
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Set 
+\begin_inset Formula $B_{l1}(x)=\begin{cases}
+I(t_{l}\leq x<t_{l+1} & l=0(1)k\\
+0 & l>0orl<k
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now 
+\begin_inset Formula $\stackrel[l=0]{k}{\sum}\beta_{l}B_{l1}(x)$
+\end_inset
+
+ is the B-spline of 1st order.B-splines of higher order are defined through
+ a recursive relationship.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B_{lr}(x)=\frac{(x-t_{l})}{(t_{l+r+1}-t_{l})}B_{l(r-1)}(x)+\frac{(t_{l+r}-x)}{(t_{l+r}-t_{l+1)}}B_{(l+1)(r-1)}(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where l=1-r,....,k and r=q+1 is the order of the spline.
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $r^{th}$
+\end_inset
+
+ order spline is given by:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(x)=\stackrel[l=1-r]{k}{\sum}\beta_{l}B_{lr}(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size small
+\bar under
+Smoothing Splines
+\end_layout
+
+\begin_layout Standard
+This is a direct method of smoothing the approximation 
+\begin_inset Formula $\hat{f}$
+\end_inset
+
+ of the regression function of the data points of mpg and horsepower.
+\end_layout
+
+\begin_layout Standard
+It is done by minimising the spline objective function:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{L}(m,\lambda)=\frac{1}{n}\stackrel[i=1]{n}{\sum}(y_{i}-m(x_{i}))^{2}+\lambda\int(m^{"}(x))^{2}dx$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The first term is the MSE of m(x) to predict y and the second term denotes
+ the curvature of m at x.It is like adding a penalty to the MSE criterion
+ and choosing the one with less curvature when two have same MSE.
+\end_layout
+
+\begin_layout Standard
+The smoothing spline is the curve which minimises the objective function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{f_{\lambda}}=$
+\end_inset
+
+
+\begin_inset Formula $\underset{m}{arg}min$
+\end_inset
+
+
+\begin_inset Formula $\mathcal{L}(m,\lambda)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Generalized Additive Models
+\end_layout
+
+\begin_layout Standard
+Suppose we need to include any other variable as covariate along with horsepower
+ and perform regression in a non-parametric way.Then we can use Additive
+ models for the purpose.
+\end_layout
+
+\begin_layout Standard
+Instead of considering a full p-dimensional function of the form:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(x)=f(x_{1},x_{2},........,x_{p})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+we restrict ourselves to functions of the form
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(x)=f_{1}(x_{1})+f_{2}(x_{2})+........+f_{p}(x_{p})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Instead of fitting the full non-parametric model we fit the additive version
+ where each 
+\begin_inset Formula $f_{j}$
+\end_inset
+
+is an univariate fitting an additive model.
+\end_layout
+
+\begin_layout Standard
+This is useful since we can get a good approximation and capture interesting
+ features in high dimensions.
+\end_layout
+
+\begin_layout Standard
+Now the various functions are estimated by Backfitting Algorithm by taking
+ the partial residuals into consideration.
+\end_layout
+
+\begin_layout Standard
+This is an iterative procedure where we choose our favourite smoother and
+ cycle through estimating each function.
+\end_layout
+
+\begin_layout Standard
+This means once our univariate smoother has been chosen, we initialize 
+\begin_inset Formula $\hat{f_{1}},\hat{f_{2}},........,\hat{f_{p}}$
+\end_inset
+
+ (say, to all to zero) and cycle over the following steps:-
+\end_layout
+
+\begin_layout Standard
+1)For j=1,2,....,p
+\end_layout
+
+\begin_layout Standard
+a)define 
+\begin_inset Formula $r_{i}=y_{i}-\underset{k\neq j}{\sum}\hat{f_{k}(x_{ik)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+b)Smooth 
+\begin_inset Formula $\hat{f_{j}}$
+\end_inset
+
+= Smooth(
+\begin_inset Formula $x_{j},r)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+c)Center 
+\begin_inset Formula $\hat{f_{j}}=$
+\end_inset
+
+
+\begin_inset Formula $\hat{f_{j}}-$
+\end_inset
+
+
+\begin_inset Formula $\frac{1}{n}\stackrel[i=1]{n}{\sum}\hat{f_{j}(}x_{ij})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In last step above, we are removing the mean from each fitted function to
+ make the model identifiable.
+ Then the fitted model is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{f(x)}=$
+\end_inset
+
+
+\begin_inset Formula $\bar{y}+\hat{f_{1}}(x_{1})+......+\hat{f_{p}}(x_{p})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+\bar under
+OUTPUT
+\end_layout
+
+\begin_layout Standard
+First let us see the description of the dataset Auto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(ISLR)
+\end_layout
+
+\begin_layout Plain Layout
+
+attach(Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+str(Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Comments:-
+\end_layout
+
+\begin_layout Standard
+The dataset consists of 392 observations out of 9 variables.There are 8 quantitat
+ive and one qualitative variable.
+\end_layout
+
+\begin_layout Standard
+Lets work with KNN regression.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+#KNN
+\end_layout
+
+\begin_layout Plain Layout
+
+require(FNN,quiet=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+l=seq(min(horsepower),max(horsepower),5)
+\end_layout
+
+\begin_layout Plain Layout
+
+a=data.frame(l)
+\end_layout
+
+\begin_layout Plain Layout
+
+knn1=knn.reg(train=horsepower,test=a,y=mpg,k=5)
+\end_layout
+
+\begin_layout Plain Layout
+
+knn2=knn.reg(train=horsepower,test=a,y=mpg,k=12)
+\end_layout
+
+\begin_layout Plain Layout
+
+knn3=knn.reg(train=horsepower,test=a,y=mpg,k=25)
+\end_layout
+
+\begin_layout Plain Layout
+
+knn4=knn.reg(train=horsepower,test=a,y=mpg,k=40)
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(2,2))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="KNN Regression for k=5")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,knn1$pred,col="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="KNN Regression for k=12")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,knn2$pred,col="blue")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="KNN Regression for k=25")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,knn3$pred,col="green")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="KNN Regression for k=40")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,knn4$pred,col="yellow")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Comments:-
+\end_layout
+
+\begin_layout Standard
+We fit KNN for k=5,12,25,40.
+ We see the degree of smoothness increases with increase in k.
+\end_layout
+
+\begin_layout Standard
+Now to choose an optimum value of k we perform 10 fold cross-validation
+ and perform a KNN with the optimum value of k.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+#Finding k by cross validation
+\end_layout
+
+\begin_layout Plain Layout
+
+cvknn<-function(k,n){
+\end_layout
+
+\begin_layout Plain Layout
+
+error=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:length(k))
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+folds=split(sample(1:n),ceiling(seq_along(sample(1:n))/(n/10)))
+\end_layout
+
+\begin_layout Plain Layout
+
+for(j in 1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+model=knn.reg(train=horsepower[-folds[[j]]],test=data.frame(horsepower[folds[[j]]]
+),y=mpg[-folds[[j]]],k=k[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+ter=sum((mpg[folds[[j]]]-model$pred)^2)
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error=c(test.error,ter)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+error=c(error,mean(test.error))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+a=k[which(error==min(error))]
+\end_layout
+
+\begin_layout Plain Layout
+
+return(a)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+k=seq(2,200,by=5)
+\end_layout
+
+\begin_layout Plain Layout
+
+kopt=cvknn(k,nrow(Auto))
+\end_layout
+
+\begin_layout Plain Layout
+
+kopt
+\end_layout
+
+\begin_layout Plain Layout
+
+#Fitting with the optimum k
+\end_layout
+
+\begin_layout Plain Layout
+
+knnopt=knn.reg(train=horsepower,test=a,y=mpg,k=kopt)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,knnopt$pred,col=578,main="KNN with optimum k by Cross-Validation")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Comments:-
+\end_layout
+
+\begin_layout Standard
+We see that the graph shows considerable smoothing at the optimum value
+ of k.
+\end_layout
+
+\begin_layout Standard
+This method is not satisfactory since with optimum k the smoothing is not
+ perfect and fails to catch the entire data.
+\end_layout
+
+\begin_layout Standard
+So lets see how Kernel regression performs.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+#Kernel Smoothing
+\end_layout
+
+\begin_layout Plain Layout
+
+ks1=ksmooth(horsepower,mpg,"box",bandwidth=0.05)
+\end_layout
+
+\begin_layout Plain Layout
+
+names(ks1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ks2=ksmooth(horsepower,mpg,"box",bandwidth=0.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+ks3=ksmooth(horsepower,mpg,"box",bandwidth=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+ks4=ksmooth(horsepower,mpg,"box",bandwidth=50)
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(2,2))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="Bandwidth is 0.05")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks1$y,col="blue")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="Bandwidth is 0.5")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks2$y,col="pink")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="Bandwidth is 10")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks3$y,col="violet")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="Bandwidth is 50")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks4$y,col="orange")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Comment:-
+\end_layout
+
+\begin_layout Standard
+As bandwidth increases the smoothing increases.
+\end_layout
+
+\begin_layout Standard
+Hence we find an optimum value of bandwidth by 10 fold cross-validation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=#Finding the bandwidth h by cross validation
+\end_layout
+
+\begin_layout Plain Layout
+
+cvkernel<-function(h,n){
+\end_layout
+
+\begin_layout Plain Layout
+
+error2=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:length(h))
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+folds=split(sample(1:n),ceiling(seq_along(sample(1:n))/(n/10)))
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error2=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(j in 1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+model=ksmooth(horsepower[-folds[[j]]],mpg[-folds[[j]]],"box",bandwidth=h[i],x.poi
+nts=horsepower[folds[[j]]])
+\end_layout
+
+\begin_layout Plain Layout
+
+ter=mean((mpg[folds[[j]]]-model$y)^2)
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error2=c(test.error2,ter)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+error2=c(error2,mean(test.error2))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+return(h[which.min(error2)])
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+h=seq(10,300,by=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+hopt=cvkernel(h,nrow(Auto))
+\end_layout
+
+\begin_layout Plain Layout
+
+hopt
+\end_layout
+
+\begin_layout Plain Layout
+
+#Fitting with the optimum bandwidth
+\end_layout
+
+\begin_layout Plain Layout
+
+ksmod=ksmooth(horsepower,mpg,"box",bandwidth=hopt)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ksmod$y,col="yellow")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Comments:-
+\end_layout
+
+\begin_layout Standard
+We see the data is smoothed at the optimum value of the bandwidth.
+\end_layout
+
+\begin_layout Standard
+Now we see for the normal kernel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+#For normal
+\end_layout
+
+\begin_layout Plain Layout
+
+ks2=ksmooth(horsepower,mpg,"normal",bandwidth=50)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks2$y,col="pink")
+\end_layout
+
+\begin_layout Plain Layout
+
+#Finding the bandwidth h by cross validation
+\end_layout
+
+\begin_layout Plain Layout
+
+cvkernel2<-function(h,n){
+\end_layout
+
+\begin_layout Plain Layout
+
+error3=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:length(h))
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+folds=split(sample(1:n),ceiling(seq_along(sample(1:n))/(n/10)))
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error3=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(j in 1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+model=ksmooth(horsepower[-folds[[j]]],mpg[-folds[[j]]],"normal",bandwidth=h[i],x.
+points=horsepower[folds[[j]]])
+\end_layout
+
+\begin_layout Plain Layout
+
+ter3=mean((mpg[folds[[j]]]-model$y)^2)
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error3=c(test.error3,ter3)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+error3=c(error3,mean(test.error3))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+b=h[which(error3==min(error3))]
+\end_layout
+
+\begin_layout Plain Layout
+
+return(b)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+h=seq(10,300,by=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+hopt2=cvkernel2(h,nrow(Auto))
+\end_layout
+
+\begin_layout Plain Layout
+
+hopt2
+\end_layout
+
+\begin_layout Plain Layout
+
+#Kernel Smoothing
+\end_layout
+
+\begin_layout Plain Layout
+
+ksmod=ksmooth(horsepower,mpg,"box",bandwidth=hopt2)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ksmod$y,col="yellow")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Comments:-
+\end_layout
+
+\begin_layout Standard
+We see there is considerable amount of smoothing but still it is not perfect
+ although there is a slight improvement over KNN.
+\end_layout
+
+\begin_layout Standard
+So we proceed to Local Linear Regression.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+hlims =range(horsepower)
+\end_layout
+
+\begin_layout Plain Layout
+
+l=seq(from=hlims[1],to=hlims[2],length=392)
+\end_layout
+
+\begin_layout Plain Layout
+
+a=data.frame(l)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,xlim=hlims,cex =.5,col =" darkgrey ")
+\end_layout
+
+\begin_layout Plain Layout
+
+fit1=loess(horsepower~mpg,span=0.2,data=Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+fit2=loess(horsepower~mpg,span=0.5,data=Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,predict(fit1,a),col ="red ",lwd =2)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,predict(fit2,a),col =" blue",lwd =2)
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("topright",legend =c("Span =0.2" ," Span =0.5") ,
+\end_layout
+
+\begin_layout Plain Layout
+
+        col=c("red "," blue "),lty =1, lwd =2, cex =.8)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Comments:-
+\end_layout
+
+\begin_layout Standard
+We can see a considerable improvement and the span with 0.2 fits better than
+ 0.5
+\end_layout
+
+\begin_layout Standard
+Lets try polynomial fitting with the Auto data.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(ISLR)
+\end_layout
+
+\begin_layout Plain Layout
+
+attach(Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+str(Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(2,2))
+\end_layout
+
+\begin_layout Plain Layout
+
+xvals <- seq(min(horsepower),max(horsepower),.1)
+\end_layout
+
+\begin_layout Plain Layout
+
+l2 <- lm(mpg~poly(horsepower,deg=2,raw=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+l3 <- lm(mpg~poly(horsepower,deg=3,raw=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+l4 <- lm(mpg~poly(horsepower,deg=4,raw=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+l8 <- lm(mpg~poly(horsepower,deg=8,raw=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(mpg~horsepower,xlab="Range(m)",ylab="MPG",col="grey",main="degree 2")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(xvals,l2$coeff[1]+l2$coeff[2]*xvals+l2$coeff[3]*xvals*xvals)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(mpg~horsepower,xlab="Range(m)",ylab="MPG",col="grey",main="degree 3")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(xvals,l3$coeff[1]+l3$coeff[2]*xvals+l3$coeff[3]*xvals*xvals+
+\end_layout
+
+\begin_layout Plain Layout
+
+        l3$coeff[4]*xvals*xvals*xvals,lty=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(mpg~horsepower,xlab="Range(m)",ylab="MPG",col="grey",main="degree 4")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(xvals,l4$coeff[1]+l4$coeff[2]*xvals+l4$coeff[3]*xvals*xvals+
+\end_layout
+
+\begin_layout Plain Layout
+
+        l4$coeff[4]*xvals*xvals*xvals+l4$coeff[5]*xvals*xvals*xvals*xvals,lty=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(mpg~horsepower,xlab="Range (m)",ylab="MPG",col="grey",main="degree
+ 8")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(xvals,l8$coeff[1]+l8$coeff[2]*xvals+l8$coeff[3]*xvals^2+
+\end_layout
+
+\begin_layout Plain Layout
+
+        l8$coeff[4]*xvals^3+l8$coeff[5]*xvals^4+l8$coeff[6]*xvals^5+
+\end_layout
+
+\begin_layout Plain Layout
+
+        l8$coeff[7]*xvals^6+l8$coeff[8]*xvals^7+l8$coeff[9]*xvals^8,lty=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Comments:-
+\end_layout
+
+\begin_layout Standard
+We have fitted four polynomials of degrees 2,3,4,8.The quadratic and cubic
+ polynomials fitted very badly while the degree 8 polynomial had improved
+ but still not satisfactory as it had wiggles at the high end of the horsepower
+ variable .
+\end_layout
+
+\begin_layout Standard
+Lets try piecewise polynomial models.We fit piecewise constant models using
+ least squares with three pieces in each case.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+y <-mpg
+\end_layout
+
+\begin_layout Plain Layout
+
+x <-horsepower 
+\end_layout
+
+\begin_layout Plain Layout
+
+xi1 <- min(x) + (range(x)[2]-range(x)[1])/3
+\end_layout
+
+\begin_layout Plain Layout
+
+xi2 <- min(x) + 2*(range(x)[2]-range(x)[1])/3
+\end_layout
+
+\begin_layout Plain Layout
+
+xtruncflat1 <- ifelse(x>xi1,1,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+xtruncflat2 <- ifelse(x>xi2,1,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+pieceflat <- lm(y~1+xtruncflat1+xtruncflat2)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x,y,ylim=c(min(y),max(y)),ylab="y",type="n")
+\end_layout
+
+\begin_layout Plain Layout
+
+points(x,y,col="grey")
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(x0=min(x),x1=xi1,y0=pieceflat$coeff[1],y1=pieceflat$coeff[1])
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(x0=xi1,x1=xi2,y0=pieceflat$coeff[1]+pieceflat$coeff[2],
+\end_layout
+
+\begin_layout Plain Layout
+
+         y1=pieceflat$coeff[1]+pieceflat$coeff[2])
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(x0=xi2,x1=max(x),y0=pieceflat$coeff[1]+pieceflat$coeff[2]+
+\end_layout
+
+\begin_layout Plain Layout
+
+           pieceflat$coeff[3],y1=pieceflat$coeff[1]+pieceflat$coeff[2]+pieceflat
+$coeff[3])
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(v=xi1,lty=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(v=xi2,lty=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Comments:-
+\end_layout
+
+\begin_layout Standard
+This was a good fit and a motivation towards spline regression.
+\end_layout
+
+\begin_layout Standard
+We proceed to fit natural splines.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+#Natural Splines
+\end_layout
+
+\begin_layout Plain Layout
+
+require(splines,quiet=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+not=c(50,100,200)
+\end_layout
+
+\begin_layout Plain Layout
+
+spl=ns(horsepower,knots=not,Boundary.knots=c(250,350))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(spl[,1]~horsepower, ylim=c(0,max(spl)), type='l',
+\end_layout
+
+\begin_layout Plain Layout
+
+     lwd=2, col=1,xlab="Natural Cubic spline basis", ylab="")
+\end_layout
+
+\begin_layout Plain Layout
+
+for (j in 2:ncol(spl)) lines(spl[,j]~horsepower, lwd=2, col=j)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lets try B-splines.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+#Basis Splines
+\end_layout
+
+\begin_layout Plain Layout
+
+not=c(50,100,200)
+\end_layout
+
+\begin_layout Plain Layout
+
+spl=ns(horsepower,knots=not)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(spl[,1]~horsepower, ylim=c(0,max(spl)), type='l',
+\end_layout
+
+\begin_layout Plain Layout
+
+     lwd=2, col=1,xlab="B spline basis", ylab="")
+\end_layout
+
+\begin_layout Plain Layout
+
+for (j in 2:ncol(spl)) lines(spl[,j]~horsepower, lwd=2, col=j)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We proceed with smoothing splines.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+model=smooth.spline(horsepower,mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+model
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x,y)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(model,col="red",lwd=4)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For modifying regression models to include other co-variates in non-parametric
+ way we work with additive models now.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+require(mgcv,quiet=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+calif.auto<-gam(mpg~s(displacement)+s(horsepower)+ s(weight)+s(acceleration)+s(cy
+linders)+s(origin)+s(year)+name, data=Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Comments:-
+\end_layout
+
+\begin_layout Standard
+We see that there is an error.So we have to take a subset and then work with
+ additive models.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+calif.auto1<-gam(mpg~s(displacement)+s(horsepower)+ s(weight), data=Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(calif.auto1)
+\end_layout
+
+\begin_layout Plain Layout
+
+calif.auto2<-gam(mpg~s(displacement)+s(horsepower)+ s(weight)+s(acceleration),
+ data=Auto) 
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(calif.auto2)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Comments:-
+\end_layout
+
+\begin_layout Standard
+Both the models perform well but the second models performs slightly better
+ than the former.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+\bar under
+CODES:-
+\end_layout
+
+\begin_layout Standard
+The R Codes are:-
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,eval=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(ISLR)
+\end_layout
+
+\begin_layout Plain Layout
+
+attach(Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+str(Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+#KNN
+\end_layout
+
+\begin_layout Plain Layout
+
+require(FNN,quiet=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+l=seq(min(horsepower),max(horsepower),5)
+\end_layout
+
+\begin_layout Plain Layout
+
+a=data.frame(l)
+\end_layout
+
+\begin_layout Plain Layout
+
+knn1=knn.reg(train=horsepower,test=a,y=mpg,k=5)
+\end_layout
+
+\begin_layout Plain Layout
+
+knn2=knn.reg(train=horsepower,test=a,y=mpg,k=12)
+\end_layout
+
+\begin_layout Plain Layout
+
+knn3=knn.reg(train=horsepower,test=a,y=mpg,k=25)
+\end_layout
+
+\begin_layout Plain Layout
+
+knn4=knn.reg(train=horsepower,test=a,y=mpg,k=40)
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(2,2))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="KNN Regression for k=5")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,knn1$pred,col="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="KNN Regression for k=12")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,knn2$pred,col="blue")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="KNN Regression for k=25")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,knn3$pred,col="green")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="KNN Regression for k=40")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,knn4$pred,col="yellow")
+\end_layout
+
+\begin_layout Plain Layout
+
+#Finding k by cross validation
+\end_layout
+
+\begin_layout Plain Layout
+
+cvknn<-function(k,n){
+\end_layout
+
+\begin_layout Plain Layout
+
+error=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:length(k))
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+folds=split(sample(1:n),ceiling(seq_along(sample(1:n))/(n/10)))
+\end_layout
+
+\begin_layout Plain Layout
+
+for(j in 1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+model=knn.reg(train=horsepower[-folds[[j]]],test=data.frame(horsepower[folds[[j]]]
+),y=mpg[-folds[[j]]],k=k[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+ter=sum((mpg[folds[[j]]]-model$pred)^2)
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error=c(test.error,ter)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+error=c(error,mean(test.error))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+a=k[which(error==min(error))]
+\end_layout
+
+\begin_layout Plain Layout
+
+return(a)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+k=seq(2,200,by=5)
+\end_layout
+
+\begin_layout Plain Layout
+
+kopt=cvknn(k,nrow(Auto))
+\end_layout
+
+\begin_layout Plain Layout
+
+kopt
+\end_layout
+
+\begin_layout Plain Layout
+
+#Fitting with the optimum k
+\end_layout
+
+\begin_layout Plain Layout
+
+knnopt=knn.reg(train=horsepower,test=a,y=mpg,k=kopt)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,knnopt$pred,col=578,main="KNN with optimum k by Cross-Validation")
+\end_layout
+
+\begin_layout Plain Layout
+
+#Kernel Smoothing
+\end_layout
+
+\begin_layout Plain Layout
+
+ks1=ksmooth(horsepower,mpg,"box",bandwidth=0.05)
+\end_layout
+
+\begin_layout Plain Layout
+
+names(ks1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ks2=ksmooth(horsepower,mpg,"box",bandwidth=0.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+ks3=ksmooth(horsepower,mpg,"box",bandwidth=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+ks4=ksmooth(horsepower,mpg,"box",bandwidth=50)
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(2,2))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="Bandwidth is 0.05")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks1$y,col="blue")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="Bandwidth is 0.5")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks2$y,col="pink")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="Bandwidth is 10")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks3$y,col="violet")
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,main="Bandwidth is 50")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks4$y,col="orange")
+\end_layout
+
+\begin_layout Plain Layout
+
+#Finding the bandwidth h by cross validation
+\end_layout
+
+\begin_layout Plain Layout
+
+cvkernel<-function(h,n){
+\end_layout
+
+\begin_layout Plain Layout
+
+error2=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:length(h))
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+folds=split(sample(1:n),ceiling(seq_along(sample(1:n))/(n/10)))
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error2=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(j in 1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+model=ksmooth(horsepower[-folds[[j]]],mpg[-folds[[j]]],"box",bandwidth=h[i],x.poi
+nts=horsepower[folds[[j]]])
+\end_layout
+
+\begin_layout Plain Layout
+
+ter=mean((mpg[folds[[j]]]-model$y)^2)
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error2=c(test.error2,ter)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+error2=c(error2,mean(test.error2))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+return(h[which.min(error2)])
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+h=seq(10,300,by=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+hopt=cvkernel(h,nrow(Auto))
+\end_layout
+
+\begin_layout Plain Layout
+
+hopt
+\end_layout
+
+\begin_layout Plain Layout
+
+#Fitting with the optimum bandwidth
+\end_layout
+
+\begin_layout Plain Layout
+
+ksmod=ksmooth(horsepower,mpg,"box",bandwidth=hopt)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks$y,col="yellow")
+\end_layout
+
+\begin_layout Plain Layout
+
+#For normal
+\end_layout
+
+\begin_layout Plain Layout
+
+ks2=ksmooth(horsepower,mpg,"normal",bandwidth=50)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks2$y,col="pink")
+\end_layout
+
+\begin_layout Plain Layout
+
+#Finding the bandwidth h by cross validation
+\end_layout
+
+\begin_layout Plain Layout
+
+cvkernel2<-function(h,n){
+\end_layout
+
+\begin_layout Plain Layout
+
+error3=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:length(h))
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+folds=split(sample(1:n),ceiling(seq_along(sample(1:n))/(n/10)))
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error3=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+for(j in 1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+model=ksmooth(horsepower[-folds[[j]]],mpg[-folds[[j]]],"normal",bandwidth=h[i],x.
+points=horsepower[folds[[j]]])
+\end_layout
+
+\begin_layout Plain Layout
+
+ter3=mean((mpg[folds[[j]]]-model$y)^2)
+\end_layout
+
+\begin_layout Plain Layout
+
+test.error3=c(test.error3,ter3)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+error3=c(error3,mean(test.error3))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+b=h[which(error3==min(error3))]
+\end_layout
+
+\begin_layout Plain Layout
+
+return(b)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+h=seq(10,300,by=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+hopt2=cvkernel2(h,nrow(Auto))
+\end_layout
+
+\begin_layout Plain Layout
+
+hopt2
+\end_layout
+
+\begin_layout Plain Layout
+
+#Kernel Smoothing
+\end_layout
+
+\begin_layout Plain Layout
+
+ksmod=ksmooth(horsepower,mpg,"box",bandwidth=hopt2)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(horsepower,ks$y,col="yellow")
+\end_layout
+
+\begin_layout Plain Layout
+
+#Local Linear Regression
+\end_layout
+
+\begin_layout Plain Layout
+
+hlims =range(horsepower)
+\end_layout
+
+\begin_layout Plain Layout
+
+l=seq(from=hlims[1],to=hlims[2],length=392)
+\end_layout
+
+\begin_layout Plain Layout
+
+a=data.frame(l)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horsepower,mpg,xlim=hlims,cex =.5,col =" darkgrey ")
+\end_layout
+
+\begin_layout Plain Layout
+
+fit1=loess(horsepower~mpg,span=0.2,data=Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+fit2=loess(horsepower~mpg,span=0.5,data=Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,predict(fit1,a),col ="red ",lwd =2)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(l,predict(fit2,a),col =" blue",lwd =2)
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("topright",legend =c("Span =0.2" ," Span =0.5") ,
+\end_layout
+
+\begin_layout Plain Layout
+
+        col=c("red "," blue "),lty =1, lwd =2, cex =.8)
+\end_layout
+
+\begin_layout Plain Layout
+
+#Polynomial Fitting
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(2,2))
+\end_layout
+
+\begin_layout Plain Layout
+
+xvals <- seq(min(horsepower),max(horsepower),.1)
+\end_layout
+
+\begin_layout Plain Layout
+
+l2 <- lm(mpg~poly(horsepower,deg=2,raw=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+l3 <- lm(mpg~poly(horsepower,deg=3,raw=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+l4 <- lm(mpg~poly(horsepower,deg=4,raw=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+l8 <- lm(mpg~poly(horsepower,deg=8,raw=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(mpg~horsepower,xlab="Range(m)",ylab="MPG",col="grey",main="degree 2")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(xvals,l2$coeff[1]+l2$coeff[2]*xvals+l2$coeff[3]*xvals*xvals)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(mpg~horsepower,xlab="Range(m)",ylab="MPG",col="grey",main="degree 3")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(xvals,l3$coeff[1]+l3$coeff[2]*xvals+l3$coeff[3]*xvals*xvals+
+\end_layout
+
+\begin_layout Plain Layout
+
+        l3$coeff[4]*xvals*xvals*xvals,lty=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(mpg~horsepower,xlab="Range(m)",ylab="MPG",col="grey",main="degree 4")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(xvals,l4$coeff[1]+l4$coeff[2]*xvals+l4$coeff[3]*xvals*xvals+
+\end_layout
+
+\begin_layout Plain Layout
+
+        l4$coeff[4]*xvals*xvals*xvals+l4$coeff[5]*xvals*xvals*xvals*xvals,lty=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(mpg~horsepower,xlab="Range (m)",ylab="MPG",col="grey",main="degree
+ 8")
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(xvals,l8$coeff[1]+l8$coeff[2]*xvals+l8$coeff[3]*xvals^2+
+\end_layout
+
+\begin_layout Plain Layout
+
+        l8$coeff[4]*xvals^3+l8$coeff[5]*xvals^4+l8$coeff[6]*xvals^5+
+\end_layout
+
+\begin_layout Plain Layout
+
+        l8$coeff[7]*xvals^6+l8$coeff[8]*xvals^7+l8$coeff[9]*xvals^8,lty=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+#Piecewise Constant Models
+\end_layout
+
+\begin_layout Plain Layout
+
+y <-mpg
+\end_layout
+
+\begin_layout Plain Layout
+
+x <-horsepower 
+\end_layout
+
+\begin_layout Plain Layout
+
+xi1 <- min(x) + (range(x)[2]-range(x)[1])/3
+\end_layout
+
+\begin_layout Plain Layout
+
+xi2 <- min(x) + 2*(range(x)[2]-range(x)[1])/3
+\end_layout
+
+\begin_layout Plain Layout
+
+xtruncflat1 <- ifelse(x>xi1,1,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+xtruncflat2 <- ifelse(x>xi2,1,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+pieceflat <- lm(y~1+xtruncflat1+xtruncflat2)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x,y,ylim=c(min(y),max(y)),ylab="y",type="n")
+\end_layout
+
+\begin_layout Plain Layout
+
+points(x,y,col="grey")
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(x0=min(x),x1=xi1,y0=pieceflat$coeff[1],y1=pieceflat$coeff[1])
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(x0=xi1,x1=xi2,y0=pieceflat$coeff[1]+pieceflat$coeff[2],
+\end_layout
+
+\begin_layout Plain Layout
+
+         y1=pieceflat$coeff[1]+pieceflat$coeff[2])
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(x0=xi2,x1=max(x),y0=pieceflat$coeff[1]+pieceflat$coeff[2]+
+\end_layout
+
+\begin_layout Plain Layout
+
+           pieceflat$coeff[3],y1=pieceflat$coeff[1]+pieceflat$coeff[2]+pieceflat
+$coeff[3])
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(v=xi1,lty=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(v=xi2,lty=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+#Splines
+\end_layout
+
+\begin_layout Plain Layout
+
+#Natural Splines
+\end_layout
+
+\begin_layout Plain Layout
+
+require(splines,quiet=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+not=c(50,100,200)
+\end_layout
+
+\begin_layout Plain Layout
+
+spl=ns(horsepower,knots=not,Boundary.knots=c(250,350))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(spl[,1]~horsepower, ylim=c(0,max(spl)), type='l',
+\end_layout
+
+\begin_layout Plain Layout
+
+     lwd=2, col=1,xlab="Natural Cubic spline basis", ylab="")
+\end_layout
+
+\begin_layout Plain Layout
+
+for (j in 2:ncol(spl)) lines(spl[,j]~horsepower, lwd=2, col=j)
+\end_layout
+
+\begin_layout Plain Layout
+
+#Basis Splines
+\end_layout
+
+\begin_layout Plain Layout
+
+not=c(50,100,200)
+\end_layout
+
+\begin_layout Plain Layout
+
+spl=ns(horsepower,knots=not)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(spl[,1]~horsepower, ylim=c(0,max(spl)), type='l',
+\end_layout
+
+\begin_layout Plain Layout
+
+     lwd=2, col=1,xlab="B spline basis", ylab="")
+\end_layout
+
+\begin_layout Plain Layout
+
+for (j in 2:ncol(spl)) lines(spl[,j]~horsepower, lwd=2, col=j)
+\end_layout
+
+\begin_layout Plain Layout
+
+#Smoothing Splines
+\end_layout
+
+\begin_layout Plain Layout
+
+model=smooth.spline(horsepower,mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+model
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x,y)
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(model,col="red",lwd=4)
+\end_layout
+
+\begin_layout Plain Layout
+
+#Generalized Additive Models
+\end_layout
+
+\begin_layout Plain Layout
+
+require(mgcv,quiet=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+calif.auto<-gam(mpg~s(displacement)+s(horsepower)+ s(weight)+s(acceleration)+s(cy
+linders)+s(origin)+s(year)+name, data=Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+calif.auto1<-gam(mpg~s(displacement)+s(horsepower)+ s(weight), data=Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(calif.auto1)
+\end_layout
+
+\begin_layout Plain Layout
+
+calif.auto2<-gam(mpg~s(displacement)+s(horsepower)+ s(weight)+s(acceleration),
+ data=Auto)
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(calif.auto2)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
